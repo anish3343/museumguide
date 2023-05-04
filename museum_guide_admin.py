@@ -15,7 +15,7 @@ async def get_counts():
     for d, a in devices.values():
         if a.service_uuids and SERVICE_UUID in a.service_uuids:
             async with bleak.BleakClient(d.address) as client:
-                count = int.from_bytes(await client.read_gatt_char(COUNT_UUID), byteorder='little')
+                count = int.from_bytes(await client.read_gatt_char(COUNT_UUID), byteorder='big')
                 name = d.name
                 names.append(name)
                 counts.append(count)
