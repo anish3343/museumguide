@@ -99,7 +99,7 @@ if __name__ == '__main__':
             for d in loop.run_until_complete(list_device_names()):
                 print(d)
         elif inp == 'modify_device_name':
-            old_name = input("Old device name: ")
+            old_name = input("Old device name (leave blank for 'MuseumGuide'): ") or "MuseumGuide"
             new_name = input("New device name: ")
             print("Renaming device...")
             loop = asyncio.get_event_loop()
